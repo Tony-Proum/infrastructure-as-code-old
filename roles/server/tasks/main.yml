@@ -1,5 +1,11 @@
-- name: Install certbot
+- name: '[Certbot] | Install'
   package:
     name: certbot
     state: latest
+
+- name: '[Nginx] | Install'
+  package:
+    name: nginx
+    state: latest
+
 

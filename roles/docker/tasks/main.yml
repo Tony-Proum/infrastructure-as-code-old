@@ -1,25 +1,25 @@
-- name: Install apt-transport-https
+- name: '[Docker] | Install apt-transport-https'
   package:
     name: apt-transport-https
     state: latest
 
-- name: Install docker apt-key
+- name: '[Docker] | Add apt-key'
   apt_key:
-    url: "https://download.docker.com/linux/debian/gpg"
+    url: 'https://download.docker.com/linux/debian/gpg'
     state: present
 
-- name: Get distrib
+- name: '[Docker] | Get distro'
   command: lsb_release -cs
-  register: myDistrib
+  register: distro
   changed_when: False
 
-- name: Check for docker repository
+- name: '[Docker] | Add repository'
   apt_repository:
-    repo:  "deb [arch=amd64] https://download.docker.com/linux/debian {{myDistrib.stdout}} stable"
+    repo:  'deb [arch=amd64] https://download.docker.com/linux/debian {{distro.stdout}} stable'
     state: present
     update_cache: yes
 
-- name: Check and install/update docker
+- name: '[Docker] | Install'
   package:
     name: docker-ce
     state: latest

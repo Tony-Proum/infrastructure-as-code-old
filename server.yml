@@ -4,5 +4,6 @@
   become_method: su
 
   roles:
+    - common
     - server
     - docker

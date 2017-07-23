@@ -1,0 +1,9 @@
+- name: '[All] | Get distro'
+  command: lsb_release -cs
+  register: distro
+  changed_when: False
+
+- name: '[All] | Get distro Version'
+  shell: 'uname -r | sed "s,[^-]*-[^-]*-,,"'
+  register: distro_version
+  changed_when: False
