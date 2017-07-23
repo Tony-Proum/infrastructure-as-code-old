@@ -3,27 +3,3 @@
     name: certbot
     state: latest
 
-- name: Install apt-transport-https
-  package:
-    name: apt-transport-https
-    state: latest
-
-- name: Install docker apt-key
-  apt_key:
-    url: "https://download.docker.com/linux/debian/gpg"
-    state: present
-
-- name: Get distrib
-  command: lsb_release -cs
-  register: myDistrib
-
-- name: Check for docker repository
-  apt_repository:
-    repo:  "deb [arch=amd64] https://download.docker.com/linux/debian {{myDistrib.stdout}} stable"
-    state: present
-    update_cache: yes
-
-- name: Check and install/update docker
-  package:
-    name: docker-ce
-    state: latest
