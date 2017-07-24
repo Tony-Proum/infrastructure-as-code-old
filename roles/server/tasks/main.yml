@@ -8,4 +8,8 @@
     name: nginx
     state: latest
 
+- name: '[Vagrant] | Install'
+  package:
+    name: vagrant
+    state: latest
 
