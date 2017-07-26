@@ -13,3 +13,14 @@
     name: vagrant
     state: latest
 
+- name: '[Vagrant] | Configure'
+  copy:
+    src: '../vagrant/'
+    dest: '/vagrant/'
+
+- name: '[Vagrant] | Create VMs'
+  command: 'vagrant up'
+  args:
+    chdir: '/vagrant'
+
+

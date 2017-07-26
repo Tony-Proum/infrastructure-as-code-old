@@ -8,11 +8,6 @@
     url: 'https://download.docker.com/linux/debian/gpg'
     state: present
 
-- name: '[Docker] | Get distro'
-  command: lsb_release -cs
-  register: distro
-  changed_when: False
-
 - name: '[Docker] | Add repository'
   apt_repository:
     repo:  'deb [arch=amd64] https://download.docker.com/linux/debian {{distro.stdout}} stable'

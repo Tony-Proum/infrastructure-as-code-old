@@ -1,0 +1,6 @@
+Vagrant.configure("2") do |config|
+    config.vm.provision "ansible" do |ansible|
+        ansible.playbook = "ssh-node.yml"
+    end
+    config.vm.box = "debian/stretch64"
+end

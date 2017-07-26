@@ -1,0 +1,4 @@
+- name: '[OpenSsh] | Install'
+  package:
+    name: openssh
+    state: latest

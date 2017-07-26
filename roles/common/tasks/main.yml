@@ -1,9 +1,29 @@
+- name: '[All] | Install lsb'
+  package:
+    name: lsb
+    state: latest
+
 - name: '[All] | Get distro'
   command: lsb_release -cs
   register: distro
   changed_when: False
 
 - name: '[All] | Get distro Version'
-  shell: 'uname -r | sed "s,[^-]*-[^-]*-,,"'
+  shell: 'uname -r'
   register: distro_version
   changed_when: False
+
+- name: '[ALL] | Install gcc'
+  package:
+    name: gcc
+    state: latest
+
+- name: '[ALL] | Install make'
+  package:
+    name: make
+    state: latest
+
+- name: '[ALL] | Install linux-headers'
+  package:
+    name: linux-headers-{{distro_version.stdout}}
+    state: latest
