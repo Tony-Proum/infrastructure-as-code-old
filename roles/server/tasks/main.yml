@@ -8,10 +8,26 @@
     name: nginx
     state: latest
 
+- name: '[Nginx] | Configure'
+  copy:
+    src: '../nginx/'
+    dest: '/etc/nginx/sites-available'
+
+- name: '[Nginx] | Reload config'
+  command: 'nginx -s reload'
+
+- name: '[Ansible] | Install'
+  package:
+    name: ansible
+    state: latest
+
 - name: '[Vagrant] | Install'
   package:
     name: vagrant
     state: latest
+
+- name: '[Vagrant] | Use KVM'
+  command: 'vagrant plugin install vagrant-libvirt'
 
 - name: '[Vagrant] | Configure'
   copy:
@@ -20,6 +36,8 @@
 
 - name: '[Vagrant] | Create VMs'
   command: 'vagrant up'
+  environment:
+    VAGRANT_DEFAULT_PROVIDER: libvirt
   args:
     chdir: '/vagrant'
 

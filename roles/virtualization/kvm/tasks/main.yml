@@ -1,0 +1,15 @@
+- name: '[KVM] | Install QEMU'
+  package:
+    name: qemu-kvm
+    state: latest
+
+- name: '[KVM] | Install libvirt-clients'
+  package:
+    name:  libvirt-clients
+    state: latest
+
+- name: '[KVM] | Install libvirt-daemon-system'
+  package:
+    name: libvirt-daemon-system
+    state: latest
+

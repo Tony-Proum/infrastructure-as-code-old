@@ -1,0 +1,14 @@
+- name: '[Lxc] | Install'
+  package:
+    name: lxc
+    state: latest
+
+- name: '[Lxc] | Install libvirt-clients'
+  package:
+    name:  libvirt-clients
+    state: latest
+
+- name: '[Lxc] | Install libvirt-daemon-system'
+  package:
+    name: libvirt-daemon-system
+    state: latest

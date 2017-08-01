@@ -5,6 +5,6 @@
 
   roles:
     - common
-    - virtualbox
+    - virtualization/kvm
     - server
-    - docker
+    - contenerization/docker
