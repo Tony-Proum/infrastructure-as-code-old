@@ -15,6 +15,7 @@
 
 - name: '[Nginx] | Reload config'
   command: 'nginx -s reload'
+  changed_when: False
 
 - name: '[Ansible] | Install'
   package:
@@ -32,13 +33,13 @@
 - name: '[Vagrant] | Configure'
   copy:
     src: '../vagrant/'
-    dest: '/vagrant/'
+    dest: '/var/vagrant-nfs/'
 
 - name: '[Vagrant] | Create VMs'
   command: 'vagrant up'
   environment:
     VAGRANT_DEFAULT_PROVIDER: libvirt
   args:
-    chdir: '/vagrant'
+    chdir: '/var/vagrant-nfs'
 
 
