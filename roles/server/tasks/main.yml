@@ -1,12 +1,12 @@
 - name: '[Certbot] | Install'
   package:
     name: certbot
-    state: latest
+    state: present
 
 - name: '[Nginx] | Install'
   package:
     name: nginx
-    state: latest
+    state: present
 
 - name: '[Nginx] | Configure'
   copy:

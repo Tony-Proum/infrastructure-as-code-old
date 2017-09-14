@@ -5,6 +5,4 @@
 
   roles:
     - common
-    - virtualization/kvm
     - server
-    - contenerization/docker

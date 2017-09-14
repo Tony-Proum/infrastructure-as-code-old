@@ -1,51 +1,45 @@
 - name: '[KVM] | Install qemu-kvm'
   package:
     name: qemu-kvm
-    state: latest
+    state: present
 
 - name: '[KVM] | Install nfs-kernel-server'
   package:
     name: nfs-kernel-server
-    state: latest
+    state: present
 
 - name: '[KVM] | Install libvirt-clients'
   package:
     name:  libvirt-clients
-    state: latest
+    state: present
 
 - name: '[KVM] | Install libvirt-daemon-system'
   package:
     name: libvirt-daemon-system
-    state: latest
+    state: present
 
-- name: '[KVM] | Install ruby-libvirt'
+- name: '[KVM] | Install python-libvirt'
   package:
-    name: ruby-libvirt
-    state: latest
+    name: python-libvirt
+    state: present
 
-- name: '[KVM] | Install ebtables'
+- name: '[NFS] | Install nfs-kernel-server'
   package:
-    name: ebtables
-    state: latest
+    name: nfs-kernel-server
+    state: present
 
-- name: '[KVM] | Install portmap'
-  package:
-    name: portmap
-    state: latest
+- name: 'Virt | Define VM'
+  virt:
+    name: alpha
+    command: define
 
-- name: '[KVM] | Install dnsmasq'
-  package:
-    name: dnsmasq
-    state: latest
 
-- name: '[KVM] | Install firewalld'
-  package:
-    name: firewalld
-    state: latest
+- name: '[Run Vm]'
+  virt:
+    name: alpha
+    state: running
 
-- name: '[KVM] | Restart libvirtd'
-  service:
-    name: libvirtd
-    state: restarted
+
+
 
 
