@@ -22,24 +22,5 @@
     name: ansible
     state: latest
 
-- name: '[Vagrant] | Install'
-  package:
-    name: vagrant
-    state: latest
-
-- name: '[Vagrant] | Use KVM'
-  command: 'vagrant plugin install vagrant-libvirt'
-
-- name: '[Vagrant] | Configure'
-  copy:
-    src: '../vagrant/'
-    dest: '/var/vagrant-nfs/'
-
-- name: '[Vagrant] | Create VMs'
-  command: 'vagrant up'
-  environment:
-    VAGRANT_DEFAULT_PROVIDER: libvirt
-  args:
-    chdir: '/var/vagrant-nfs'
 
 

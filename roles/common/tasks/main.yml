@@ -25,5 +25,5 @@
 
 - name: '[ALL] | Install linux-headers'
   package:
-    name: linux-headers-{{distro_version.stdout}}
+    name: linux-headers-{{distro_version.stdout|default('4.9.0-3-amd64')}}
     state: present
