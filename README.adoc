@@ -1,0 +1,3 @@
+## Infrastructure As Code image:https://travis-ci.org/Tony-Proum/infrastructure-as-code.svg?branch=master["Build Status", link="https://travis-ci.org/Tony-Proum/infrastructure-as-code"]
+
+This project will contains Ansible Playbooks that should allow to create an infrastructure
