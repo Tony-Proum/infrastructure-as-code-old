@@ -1,7 +1,8 @@
 - name: '[All] | Install lsb'
-  package:
+  apt:
     name: lsb
     state: present
+    update_cache: yes
 
 - name: '[All] | Get distro'
   command: lsb_release -cs
@@ -14,16 +15,16 @@
   changed_when: False
 
 - name: '[ALL] | Install gcc'
-  package:
+  apt:
     name: gcc
     state: present
 
 - name: '[ALL] | Install make'
-  package:
+  apt:
     name: make
     state: present
 
 - name: '[ALL] | Install linux-headers'
-  package:
+  apt:
     name: linux-headers-{{distro_version.stdout|default('4.9.0-3-amd64')}}
     state: present
