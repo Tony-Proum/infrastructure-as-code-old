@@ -8,3 +8,4 @@ install:
   - pip install ansible
 script:
   - "ansible-playbook -i inventories/test server.yml --syntax-check"
+  - "ansible-playbook -i inventories/test vms.yml --syntax-check"
